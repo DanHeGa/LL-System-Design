@@ -1,0 +1,3 @@
+rate, ride, rider
+ride, rider, rides
+ride, rider, rides
