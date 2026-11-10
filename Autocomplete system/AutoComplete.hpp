@@ -8,7 +8,7 @@ using namespace std;
 
 class TrieNode {
     private:
-        vector<string> collectWords(TrieNode* node, string prefix);
+        void collectWords(TrieNode* node, string prefix, vector<string> &results);
     public:
         vector<TrieNode*> children;
         bool isEnd;

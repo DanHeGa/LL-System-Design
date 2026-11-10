@@ -29,22 +29,22 @@ vector<string> TrieNode::getRecommendations(string prefix){
 
         curr = curr->children[cIdx];
       }
-      vector<string> recommended = collectWords(curr, prefix);
-      return recommended;
+
+      vector<string> results;
+      collectWords(curr, prefix, results);
+      return results;
 }
 
-vector<string> TrieNode::collectWords(TrieNode* node, string prefix) {
-    vector<string> results;
+void TrieNode::collectWords(TrieNode* node, string prefix, vector<string> &results) {
     if(node->isEnd){ 
         results.push_back(prefix); 
     }
 
     for (int i = 0; i < 26; i++) {
         if (node->children[i]) {
-            vector<string> collected = collectWords(node->children[i], prefix + char('a' + i));
-            results.insert(results.end(), collected.begin(), collected.end());
+            collectWords(node->children[i], prefix + char('a' + i), results);
         }
     }
 
-    return results;
+    return;
 }
